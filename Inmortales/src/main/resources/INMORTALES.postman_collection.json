@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "58f66308-c309-4a55-b886-1a05947e8ce9",
+		"name": "INMORTALES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42143154"
+	},
+	"item": [
+		{
+			"name": "JUGADOR",
+			"item": [
+				{
+					"name": "ALL JUGADORES",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "JUGADOR BY ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE JUGADOR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"nombre\": \"Legominolas\",\r\n    \"countCiudades\": 12,\r\n    \"senado\": \"si\",\r\n    \"alianza\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Inmortales\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/jugadores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE JUGADOR",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Hades0101\",\r\n    \"countCiudades\": 12,\r\n    \"senado\": \"si\",\r\n    \"alianza\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Inmortales\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/jugadores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE JUGADOR",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/jugadores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jugadores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CIUDADES",
+			"item": [
+				{
+					"name": "ALL CIUDADES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/ciudades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CIUDADES BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/ciudades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE CIUDAD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/ciudades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CIUDAD",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/ciudades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE CIUDAD",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/ciudades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ciudades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ALIANZA",
+			"item": [
+				{
+					"name": "ALL ALIANZAS",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "ALIANZA BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alianzas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alianzas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE ALIANZA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alianzas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alianzas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE ALIANZA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alianzas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alianzas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ALIANZA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/alianzas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"alianzas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RECUENTO",
+			"item": [
+				{
+					"name": "ALL RECUENTOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/recuentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"recuentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RECUENTOS BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/recuentos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"recuentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE RECUENTO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/recuentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"recuentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE RECUENTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/recuentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"recuentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE RECUENTO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/recuentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"recuentos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
