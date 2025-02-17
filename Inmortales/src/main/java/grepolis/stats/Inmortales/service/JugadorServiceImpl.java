@@ -19,12 +19,20 @@ public class JugadorServiceImpl implements JugadorService {
 	@Override
 	public List<JugadorServiceModel> getAllJugadores() {
 		Iterable<Jugador> jugadorIterable = jugadorRepository.findAll();
+		AlianzaServiceModel alianzaServiceModel;
+		JugadorServiceModel jugadorServiceModel;
 		List<JugadorServiceModel> response = new ArrayList<>();
 		for (Jugador jugador : jugadorIterable) {
-			AlianzaServiceModel alianzaServiceModel = new AlianzaServiceModel(jugador.getAlianza().getId(),
-					jugador.getAlianza().getNombre());
-			JugadorServiceModel jugadorServiceModel = new JugadorServiceModel(jugador.getId(), jugador.getNombre(),
-					jugador.getCountCiudades(), jugador.getSenado(), alianzaServiceModel);
+			if (!(jugador.getAlianza() == null)) {
+				alianzaServiceModel = new AlianzaServiceModel(jugador.getAlianza().getId(),
+						jugador.getAlianza().getNombre());
+				jugadorServiceModel = new JugadorServiceModel(jugador.getId(), jugador.getNombre(),
+						jugador.getCountCiudades(), jugador.getSenado(), alianzaServiceModel);
+
+			} else {
+				jugadorServiceModel = new JugadorServiceModel(jugador.getId(), jugador.getNombre(),
+						jugador.getCountCiudades(), jugador.getSenado(), null);
+			}
 
 			response.add(jugadorServiceModel);
 		}
@@ -35,17 +43,20 @@ public class JugadorServiceImpl implements JugadorService {
 	@Override
 	public JugadorServiceModel getJugadorById(Long id) {
 		Jugador jugador = jugadorRepository.findById(id).orElse(null);
-		AlianzaServiceModel alianzaServiceModel = new AlianzaServiceModel(
-				jugador.getAlianza().getId(),
-				jugador.getAlianza().getNombre()
-				);
-		JugadorServiceModel jugadorServiceModel = new JugadorServiceModel(
-				jugador.getId(), 
-				jugador.getNombre(),
-				jugador.getCountCiudades(), 
-				jugador.getSenado(), 
-				alianzaServiceModel
-				);
+		AlianzaServiceModel alianzaServiceModel;
+		JugadorServiceModel jugadorServiceModel;
+
+		if (!(jugador.getAlianza() == null)) {
+			alianzaServiceModel = new AlianzaServiceModel(jugador.getAlianza().getId(),
+					jugador.getAlianza().getNombre());
+			jugadorServiceModel = new JugadorServiceModel(jugador.getId(), jugador.getNombre(),
+					jugador.getCountCiudades(), jugador.getSenado(), alianzaServiceModel);
+
+		} else {
+			jugadorServiceModel = new JugadorServiceModel(jugador.getId(), jugador.getNombre(),
+					jugador.getCountCiudades(), jugador.getSenado(), null);
+		}
+
 		return jugadorServiceModel;
 	}
 
@@ -65,6 +76,12 @@ public class JugadorServiceImpl implements JugadorService {
 	public void deleteJugador(Long id) {
 
 		jugadorRepository.deleteById(id);
+	}
+
+	@Override
+	public Jugador getById(Long id) {
+		Jugador jugador = jugadorRepository.findById(id).orElse(null);
+		return jugador;
 	}
 
 //	public Jugador createJugador(Jugador jugador) {

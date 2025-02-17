@@ -18,6 +18,7 @@ public class RecuentoServiceImpl implements RecuentoService {
 	@Override
 	public List<RecuentoServiceModel> getAllRecuentos() {
 		Iterable<Recuento> recuentoIterable = recuentoRepository.findAll();
+		
 		List<RecuentoServiceModel> response = new ArrayList<>();
 		for (Recuento recuento : recuentoIterable) {
 			RecuentoServiceModel recuentoServiceModel = new RecuentoServiceModel(recuento.getId(),

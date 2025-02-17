@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 
 import grepolis.stats.Inmortales.model.Ciudad;
 import grepolis.stats.Inmortales.model.CiudadServiceModel;
+import grepolis.stats.Inmortales.model.Jugador;
 import grepolis.stats.Inmortales.model.JugadorServiceModel;
+import grepolis.stats.Inmortales.model.Recuento;
 import grepolis.stats.Inmortales.repository.IntCiudadRepository;
+import grepolis.stats.Inmortales.repository.IntJugadorRepository;
+import grepolis.stats.Inmortales.repository.IntRecuentoRepository;
 
 @Service
 public class CiudadServiceImpl implements CiudadService {
@@ -44,10 +48,28 @@ public class CiudadServiceImpl implements CiudadService {
 		return ciudadServiceModel;
 	}
 
+	@Autowired
+	private IntJugadorRepository jugadorRepository;
+	@Autowired
+	private JugadorServiceImpl service;
+	@Autowired
+	private IntRecuentoRepository recuentoReposotory;
+
+	// ESTA FUNCION SUMA + 1 AL CONTADOR DE CIUDADES Y AL RECUENTO
 	@Override
 	public Ciudad createCiudad(Ciudad request) {
-		// TODO Auto-generated method stub
-		return ciudadRepository.save(request);
+		System.out.println(request.toString());
+		Jugador jugador = service.getById(request.getJugador().getId());
+		System.out.println(jugador.toString());
+		jugador.setCountCiudades(jugador.getCountCiudades() + 1);
+		jugadorRepository.save(jugador);
+		Ciudad saveCiudad = ciudadRepository.save(request);
+		Recuento recuento = recuentoReposotory.findByTipoCiudad(saveCiudad.getTipoCiudad());
+		System.out.println(recuento.toString());
+		recuento.setCantidad(recuento.getCantidad() + 1);
+		recuentoReposotory.save(recuento);
+
+		return saveCiudad;
 	}
 
 	@Override
@@ -59,6 +81,14 @@ public class CiudadServiceImpl implements CiudadService {
 	@Override
 	public void deleteCiudad(Long id) {
 		// TODO Auto-generated method stub
+		Ciudad ciudad = ciudadRepository.getById(id);
+		Jugador jugador = service.getById(ciudad.getJugador().getId());
+		System.out.println(jugador.toString());
+		jugador.setCountCiudades(jugador.getCountCiudades() - 1);
+		jugadorRepository.save(jugador);
+		Recuento recuento = recuentoReposotory.findByTipoCiudad(ciudad.getTipoCiudad());
+		System.out.println(recuento.toString());
+		recuento.setCantidad(recuento.getCantidad() - 1);
 		ciudadRepository.deleteById(id);
 	}
 

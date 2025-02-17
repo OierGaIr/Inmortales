@@ -3,6 +3,7 @@ package grepolis.stats.Inmortales.model;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,8 @@ public class Jugador {
 	private String senado;
 	@ManyToOne
 	@JoinColumn(name = "idAlianza")
+	@OnDelete(action = OnDeleteAction.SET_NULL)
+	@Nullable
 	private Alianza alianza;
 
 	// Getters y Setters

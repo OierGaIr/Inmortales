@@ -41,6 +41,7 @@ public class CiudadController {
 
 	@PostMapping
 	public ResponseEntity<Ciudad> createCiudad(@RequestBody Ciudad ciudad) {
+		
 		Ciudad nuevaCiudad = ciudadService.createCiudad(ciudad);
 		return new ResponseEntity<>(nuevaCiudad, HttpStatus.CREATED);
 	}

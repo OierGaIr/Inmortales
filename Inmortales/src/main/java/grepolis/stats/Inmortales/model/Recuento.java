@@ -13,7 +13,7 @@ public class Recuento {
 	private Long id;
 	private String tipoCiudad;
 	private int cantidad;
-
+	
 	// Getters y Setters
 	public Recuento() {
 		super();

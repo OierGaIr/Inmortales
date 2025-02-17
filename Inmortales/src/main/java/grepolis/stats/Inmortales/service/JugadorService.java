@@ -10,6 +10,7 @@ public interface JugadorService {
 
 	JugadorServiceModel getJugadorById(Long id);
 
+	Jugador getById(Long id);
 	Jugador createJugador(Jugador request);
 
 	Jugador updateJugador(Jugador request);
